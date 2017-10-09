@@ -63,8 +63,24 @@ def setup_interaction():
 
 
 def random_update(ratings):
+    """Asks the user to update the rating of a random restaurant"""
+
+    names = ratings.keys()
+    random_rest = random.choice(names)
+
+    print "{name} is currently rated {rated}.".format(
+        name=random_rest, rated=ratings[random_rest])
+    new_rating = raw_input("Please enter new rating: \n")
+    ratings[random_rest] = new_rating
+
+    print "{name} is now rated {rated}.".format(
+        name=random_rest, rated=ratings[random_rest])
+
+    return ratings
+
+
+def choice_update(ratings):
     """in progress"""
-    random_rest = random.choice(ratings)
-    print random_rest
+    pass
 
 setup_interaction()
